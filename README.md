@@ -7,7 +7,6 @@ A standardized, organized, object-oriented foundation for building high-quality 
 The WordPress Plugin Boilerplate includes the following files:
 
 * `.gitignore`. Used to exclude certain files from the repository.
-* `CHANGELOG.md`. The list of changes to the core project.
 * `README.md`. The file that you’re currently reading.
 * A `plugin-name` directory that contains the source code - a fully executable WordPress plugin.
 
@@ -74,17 +73,9 @@ Note that if you include your own classes, or third-party libraries, there are t
 * `plugin-name/admin` is for all admin-specific functionality
 * `plugin-name/public` is for all public-facing functionality
 
-Note that previous versions of the Boilerplate did not include `Plugin_Name_Loader` but this class is used to register all filters and actions with WordPress.
+`Plugin_Name_Loader` class is used to register all filters and actions with WordPress.
 
 The example code provided shows how to register your hooks with the Loader class.
-
-### What About Other Features?
-
-The previous version of the WordPress Plugin Boilerplate included support for a number of different projects such as the [GitHub Updater](https://github.com/afragen/github-updater).
-
-These tools are not part of the core of this Boilerplate, as I see them as being additions, forks, or other contributions to the Boilerplate.
-
-The same is true of using tools like Grunt, Composer, etc. These are all fantastic tools, but not everyone uses them. In order to  keep the core Boilerplate as light as possible, these features have been removed and will be introduced in other editions, and will be listed and maintained on the project homepage.
 
 # Credits
 
@@ -92,8 +83,8 @@ The WordPress Plugin Boilerplate was started in 2011 by [Tom McFarlin](http://tw
 
 The current version of the Boilerplate was developed in conjunction with [Josh Eaton](https://twitter.com/jjeaton), [Ulrich Pogson](https://twitter.com/grapplerulrich), and [Brad Vincent](https://twitter.com/themergency).
 
-The homepage is based on a design as provided by [HTML5Up](http://html5up.net), the Boilerplate logo was designed by Rob McCaskill of [BungaWeb](http://bungaweb.com), and the site `favicon` was created by [Mickey Kay](https://twitter.com/McGuive7).
+The project was maintained by Devin Vinson until 2019.
 
-## Documentation, FAQs, and More
+# Why this fork
 
-If you’re interested in writing any documentation or creating tutorials please [let me know](http://devinvinson.com/contact/) .
+The project hasn't been updated in years and this fork aims to keep the code up to the WordPress standards while keeping it minimal.
