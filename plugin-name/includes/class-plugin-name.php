@@ -1,12 +1,11 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       http://example.com
+ * @link       https://example.com
  * @since      1.0.0
  *
  * @package    Plugin_Name
@@ -40,15 +39,6 @@ class Plugin_Name {
 	protected $loader;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
-	 */
-	protected $plugin_name;
-
-	/**
 	 * The current version of the plugin.
 	 *
 	 * @since    1.0.0
@@ -77,7 +67,6 @@ class Plugin_Name {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -86,7 +75,7 @@ class Plugin_Name {
 	 * Include the following files that make up the plugin:
 	 *
 	 * - Plugin_Name_Loader. Orchestrates the hooks of the plugin.
-	 * - Plugin_Name_i18n. Defines internationalization functionality.
+	 * - Plugin_Name_I18n. Defines internationalization functionality.
 	 * - Plugin_Name_Admin. Defines all hooks for the admin area.
 	 * - Plugin_Name_Public. Defines all hooks for the public side of the site.
 	 *
@@ -102,33 +91,32 @@ class Plugin_Name {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-plugin-name-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-plugin-name-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin.php';
+		require_once plugin_dir_path( __DIR__ ) . 'admin/class-plugin-name-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
+		require_once plugin_dir_path( __DIR__ ) . 'public/class-plugin-name-public.php';
 
 		$this->loader = new Plugin_Name_Loader();
-
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Plugin_Name_i18n class in order to set the domain and to register the hook
+	 * Uses the Plugin_Name_I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -136,10 +124,9 @@ class Plugin_Name {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Plugin_Name_i18n();
+		$plugin_i18n = new Plugin_Name_I18n();
 
 		$this->loader->add_action( 'init', $plugin_i18n, 'plugin_name_load_plugin_textdomain' );
-
 	}
 
 	/**
@@ -150,12 +137,10 @@ class Plugin_Name {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
-		$plugin_admin = new Plugin_Name_Admin('plugin-name', $this->get_version() );
-
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'plugin_name_enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'plugin_name_enqueue_scripts' );
-
+		/*
+		 * Placeholder assets are intentionally not loaded by default.
+		 * Add admin-specific hooks here when your plugin registers its own screens.
+		 */
 	}
 
 	/**
@@ -166,12 +151,10 @@ class Plugin_Name {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-
-		$plugin_public = new Plugin_Name_Public( 'plugin-name', $this->get_version() );
-
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'plugin_name_enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'plugin_name_enqueue_scripts' );
-
+		/*
+		 * Placeholder assets are intentionally not loaded by default.
+		 * Add public hooks here only when a front-end feature requires them.
+		 */
 	}
 
 	/**
@@ -191,7 +174,7 @@ class Plugin_Name {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
-		return $this->plugin_name;
+		return 'plugin-name';
 	}
 
 	/**
@@ -213,5 +196,4 @@ class Plugin_Name {
 	public function get_version() {
 		return $this->version;
 	}
-
 }

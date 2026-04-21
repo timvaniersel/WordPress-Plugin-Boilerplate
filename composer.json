@@ -1,0 +1,20 @@
+{
+    "name": "wordpress-plugin-boilerplate/boilerplate",
+    "description": "Development tooling for the WordPress Plugin Boilerplate.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "squizlabs/php_codesniffer": "^3.10",
+        "wp-coding-standards/wpcs": "^3.1"
+    },
+    "scripts": {
+        "lint:phpcs": "phpcs --standard=phpcs.xml.dist"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
