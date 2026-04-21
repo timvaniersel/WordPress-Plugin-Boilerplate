@@ -1,9 +1,8 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://example.com
  * @since      1.0.0
  *
  * @package    Plugin_Name
@@ -35,12 +34,10 @@ class Plugin_Name_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $version ) {
-
 		$this->version = $version;
-
 	}
 
 	/**
@@ -50,8 +47,7 @@ class Plugin_Name_Public {
 	 */
 	public function plugin_name_enqueue_styles() {
 
-		wp_enqueue_style( 'plugin-name', plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style( 'plugin-name-public', plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version );
 	}
 
 	/**
@@ -61,8 +57,12 @@ class Plugin_Name_Public {
 	 */
 	public function plugin_name_enqueue_scripts() {
 
-		wp_enqueue_script( 'plugin-name', plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script(
+			'plugin-name-public',
+			plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js',
+			array(),
+			$this->version,
+			array( 'in_footer' => true )
+		);
 	}
-
 }
